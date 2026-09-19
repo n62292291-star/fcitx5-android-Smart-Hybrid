@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-24.04
 
+    env:
+      SIGN_KEY_BASE64: ${{ secrets.SIGN_KEY_BASE64 }}
+      SIGN_KEY_PWD: ${{ secrets.SIGN_KEY_PWD }}
+      SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+
     steps:
       - name: Fetch source code
         uses: actions/checkout@v7
