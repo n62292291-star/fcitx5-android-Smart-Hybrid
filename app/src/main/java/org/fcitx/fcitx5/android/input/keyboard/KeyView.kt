@@ -281,6 +281,8 @@ open class TextKeyView(ctx: Context, theme: Theme, def: KeyDef.Appearance.Text) 
 @SuppressLint("ViewConstructor")
 class AltTextKeyView(ctx: Context, theme: Theme, def: KeyDef.Appearance.AltText) :
     TextKeyView(ctx, theme, def) {
+    private val altDef = def
+
     val altText = view(::AutoScaleTextView) {
         isClickable = false
         isFocusable = false
@@ -302,7 +304,7 @@ class AltTextKeyView(ctx: Context, theme: Theme, def: KeyDef.Appearance.AltText)
         isFocusable = false
         setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9f)
         setTypeface(typeface, Typeface.NORMAL)
-        text = def.doublePinyinHint ?: ""
+        text = altDef.doublePinyinHint ?: ""
         textDirection = View.TEXT_DIRECTION_FIRST_STRONG_LTR
         setTextColor(
             when (def.variant) {
@@ -339,7 +341,7 @@ class AltTextKeyView(ctx: Context, theme: Theme, def: KeyDef.Appearance.AltText)
             rightToRight = parentId; rightMargin = hMargin + dp(4)
         }
         doublePinyinHint.visibility =
-            if (def.doublePinyinHint != null) View.VISIBLE else View.GONE
+            if (altDef.doublePinyinHint != null) View.VISIBLE else View.GONE
 
         doublePinyinHint.updateLayoutParams<ConstraintLayout.LayoutParams> {
             leftToLeft = parentId
@@ -358,7 +360,7 @@ class AltTextKeyView(ctx: Context, theme: Theme, def: KeyDef.Appearance.AltText)
         }
 
         doublePinyinHint.visibility =
-            if (def.doublePinyinHint != null) View.VISIBLE else View.GONE
+            if (altDef.doublePinyinHint != null) View.VISIBLE else View.GONE
 
         doublePinyinHint.updateLayoutParams<ConstraintLayout.LayoutParams> {
             leftToLeft = parentId
