@@ -45,11 +45,19 @@ jobs:
 
       - name: Build Release APK
         run: |
-          ./gradlew :app:assembleRelease
-          ./gradlew :assembleReleasePlugins
+          ./gradlew :app:assembleRelease --stacktrace
+        env:
+          GRADLE_OPTS: "-Xmx4096m"
 
       - name: Upload APK
         uses: actions/upload-artifact@v7
         with:
           name: app-release
           path: app/build/outputs/apk/release/*.apk
+          if-no-files-found: error
+
+      - name: Debug on failure
+        if: failure()
+        run: |
+          echo "=== APK files ==="
+          find app/build -name "*.apk" -type f 2>/dev/null | head -20
