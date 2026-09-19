@@ -1,319 +1,474 @@
-# Fcitx5 Android Smart Hybrid [中文](#中文) | [English](#english) --- # 中文 ## 项目简介 **Fcitx5 Android Smart Hybrid** 是基于 [Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android) 开发的个人功能增强分支。 这个项目的主要方向是探索一种更加灵活的 Android 输入方式，在保留 Fcitx5 Android 原有输入法框架、多语言支持以及插件生态的基础上，逐步加入： - 小鹤双拼 - 双拼与全拼混合输入 - 全拼输入 - 智能纠错与错字猜测 - 语音输入 - 更直观的键盘提示 - 其他针对移动端输入体验的改进 项目目前仍处于开发阶段。 --- ## 当前版本 ### v0.2 开发方向 目前首先实现的是**双拼键位提示**。 在英文键盘上显示对应的小鹤双拼提示，例如： ```text ┌─────┐ │ Q │ │ iu │ └─────┘ 
+# Fcitx5 Android Smart Hybrid
 
-不同按键会显示对应的双拼提示。
+> 基于 Fcitx5 Android 的个人功能增强分支，探索双拼、全拼、混合输入以及更智能的移动端输入体验。
 
-例如：
+[![Build APK](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/actions/workflows/publish.yml/badge.svg)](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/actions)
+[![GitHub Releases](https://img.shields.io/github/v/release/n62292291-star/fcitx5-android-Smart-Hybrid)](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/releases)
+[![GitHub License](https://img.shields.io/github/license/n62292291-star/fcitx5-android-Smart-Hybrid)](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid)
 
-Q → iu W → ia E → ua R → uan T → ue ... 
+**中文** · [English](#english)
 
-注意
+---
 
-目前的双拼提示主要用于键位学习和视觉提示。
+# 中文
 
-也就是说： 当前版本显示双拼键位提示，但输入逻辑仍然使用原有键盘输入逻辑。
+## ✨ 项目简介
 
-真正的双拼输入、双拼/全拼混合输入将在后续版本继续开发。
+**Fcitx5 Android Smart Hybrid** 是基于
+[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)
+开发的个人功能增强分支。
 
-项目目标
+项目希望在保留 Fcitx5 Android 原有输入法框架、多语言支持以及插件生态的基础上，逐步加入更加灵活的中文输入方式。
 
-项目希望逐步形成以下输入模式：
+### 主要方向
 
-┌──────────────┐ │ Android │ │ Keyboard │ └──────┬───────┘ │ ├──────────────┬──────────────┐ │ │ │ ▼ ▼ ▼ 全拼输入 双拼输入 混合输入 │ │ │ └──────────────┼──────────────┘ ▼ 智能候选 / 纠错 │ ▼ 中文输入 
+- 🐦 小鹤双拼
+- 🔀 双拼 / 全拼混合输入
+- ⌨️ 全拼输入
+- 🧠 智能纠错与输入猜测
+- 🎙️ 语音输入
+- 💡 更直观的键盘提示
+- 📱 面向移动端的输入体验优化
+
+> 项目目前处于持续开发阶段。
+
+---
+
+## 🚀 当前功能
+
+### 小鹤双拼键位提示
+
+当前版本首先实现了**小鹤双拼键位提示**。
+
+字母键下方会显示对应的双拼提示，例如：
+
+```text
+┌─────┐
+│  Q  │
+│  iu │
+└─────┘
+```
+
+部分键位示例：
+
+| 按键 | 提示 |
+|:---:|:---:|
+| Q | `iu` |
+| W | `ia` |
+| E | `ua` |
+| R | `uan` |
+| T | `ue` |
+
+### ⚠️ 当前功能范围
+
+目前的双拼提示主要用于：
+
+- 学习双拼键位
+- 熟悉键盘布局
+- 提供视觉提示
+
+**目前还不是完整的双拼输入。**
+
+也就是说：
+
+> 当前版本可以看到双拼键位提示，但实际输入逻辑仍然使用原有键盘输入逻辑。
+
+完整的小鹤双拼输入将在后续版本继续开发。
+
+---
+
+## 🗺️ 开发计划
+
+| 功能 | 状态 |
+|---|:---:|
+| 小鹤双拼键位提示 | ✅ 已完成 |
+| 双拼键位映射 | 🚧 开发中 |
+| 完整小鹤双拼输入 | 📋 计划中 |
+| 双拼候选处理 | 📋 计划中 |
+| 双拼 / 全拼混合输入 | 📋 计划中 |
+| 更完善的全拼输入 | 📋 计划中 |
+| 智能纠错 | 📋 计划中 |
+| 输入错误猜测 | 📋 计划中 |
+| 语音输入 | 📋 计划中 |
+| 更多移动端输入优化 | 📋 计划中 |
+
+---
+
+## 🎯 项目目标
+
+项目希望逐步形成多种输入方式可以共存的输入体验：
+
+```text
+                    Android Keyboard
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+             ▼             ▼             ▼
+         全拼输入        双拼输入       混合输入
+             │             │             │
+             └─────────────┼─────────────┘
+                           ▼
+                    智能候选 / 纠错
+                           │
+                           ▼
+                        中文输入
+```
 
 长期目标不是简单增加一种输入方式，而是让不同输入习惯可以在同一个输入法中自然共存。
 
-计划功能
+---
 
-以下功能属于项目计划，并不代表当前版本已经全部实现。
+## 📥 下载
 
-1. 小鹤双拼
+### GitHub Releases
 
-计划支持完整的小鹤双拼输入方案。包括：
+正式发布版本：
 
-双拼键位映射
+**[下载最新 Release](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/releases)**
 
-声母输入
+### GitHub Actions
 
-韵母输入
+开发版本可以从 GitHub Actions 获取：
 
-双拼候选词
+**[查看 GitHub Actions](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/actions)**
 
-双拼词库
+> 开发版本可能包含尚未完成的功能，不保证稳定性。
 
-双拼状态处理
+---
 
-2. 全拼输入
+## 🛠️ 构建
 
-保留传统全拼输入方式。例如输入 nihao 得到 你好。
+### 环境要求
 
-3. 双拼 / 全拼混合输入
+项目使用 Gradle 构建 Android APK。
 
-计划允许用户在同一次输入过程中混合使用不同输入方式，例如 ni + 双拼 或 完整拼音 + 双拼。具体输入规则将在后续开发过程中确定。
+推荐环境：
 
-4. 智能纠错
-
-计划加入针对移动端输入习惯的智能纠错，可能包括：
-
-拼音输入错误
-
-双拼键位误按
-
-相邻按键误触
-
-常见拼音错误
-
-候选词纠错
-
-根据上下文猜测用户输入
-
-5. 语音输入
-
-计划加入语音输入能力。具体实现方式以及所使用的语音识别服务将在后续开发中确定。
-
-6. 更直观的键盘提示
-
-除了双拼提示以外，未来可能继续增加：
-
-输入模式提示
-
-当前输入状态
-
-快捷键提示
-
-特殊按键提示
-
-用户自定义键位提示
-
-下载
-
-GitHub Releases
-
-正式发布的 APK 将放在 GitHub Releases： GitHub Releases
-
-如果项目尚未发布 Release，也可以通过 GitHub Actions 获取构建产物。
-
-GitHub Actions
-
-项目支持使用 GitHub Actions 自动构建 APK。
-
-每次向 master 分支推送代码时，可以自动执行构建。
-
-也可以在 GitHub Actions 页面手动运行构建工作流。
-
-构建完成后，APK 会作为 GitHub Actions Artifact 提供下载。
-
-本项目与上游项目的关系
-
-本项目基于 Fcitx5 Android 开发。
-
-上游项目： https://github.com/fcitx5-android/fcitx5-android
-
-本项目主要针对个人需求进行功能实验和修改。上游项目的基础功能、输入法框架以及大量代码仍然由 Fcitx5 Android 提供。
-
-如果你希望使用原版 Fcitx5 Android，建议直接访问上游项目。
-
-原有功能
-
-本项目继承 Fcitx5 Android 的基础输入法框架。因此除了本项目正在开发的新功能之外，也保留上游项目提供的输入法基础能力，包括：
-
-Android 输入法服务
-
-Fcitx5 输入法核心
-
-多语言输入支持
-
-键盘输入
-
-输入法切换
-
-输入法配置
-
-Fcitx5 插件支持
-
-输入法引擎支持
-
-具体功能以及支持情况以当前代码版本为准。
-
-支持的输入语言
-
-本项目基于 Fcitx5 Android，因此可以使用 Fcitx5 Android 所支持的输入法和语言引擎。实际可用的输入方式取决于：
-
-当前安装的输入法引擎
-
-当前启用的插件
-
-输入法配置
-
-项目当前构建版本
-
-项目不会因为增加中文双拼功能而移除原有的多语言输入框架。
-
-开发
-
-项目结构
-
-主要 Android 代码位于： app/src/main/java/org/fcitx/fcitx5/android/
-
-其中： core/ daemon/ data/ input/ provider/ ui/ utils/
-
-键盘相关代码主要位于： app/src/main/java/org/fcitx/fcitx5/android/input/keyboard/
-
-例如： BaseKeyboard.kt CommonKeyActionListener.kt CustomGestureView.kt KeyAction.kt KeyActionListener.kt KeyDef.kt KeyDefPreset.kt KeyDrawable.kt KeyView.kt KeyboardWindow.kt LangSwitchBehavior.kt NumberKeyboard.kt SpaceLongPressBehavior.kt SwipeSymbolDirection.kt TextKeyboard.kt
-
-双拼提示实现
-
-当前双拼提示主要涉及以下部分： KeyDef.kt KeyDefPreset.kt KeyView.kt DoublePinyin.kt
-
-DoublePinyin.kt：负责保存双拼键位提示映射（例如 "Q" to "iu", "W" to "ia", ...）。
-
-KeyDef.kt：为键盘按键定义增加双拼提示信息（val doublePinyinHint: String? = null）。
-
-KeyDefPreset.kt：在创建字母键时读取对应的双拼提示（doublePinyinHint = DoublePinyin.Xiaohe.getHint(character)）。
-
-KeyView.kt：负责将双拼提示显示在键盘按键上。
-
-整個功能的结构大致为：
-
-DoublePinyin.kt │ ▼ KeyDefPreset.kt │ ▼ KeyDef.kt │ ▼ KeyView.kt │ ▼ 键盘显示 
-
-本地构建
-
-环境要求
-
-项目使用 Gradle 构建 Android APK。推荐使用：
-
-JDK 17
-
-Android SDK
-
-Android NDK / CMake
-
-Gradle Wrapper
+- JDK 17
+- Android SDK
+- Android NDK / CMake
+- Gradle Wrapper
 
 具体版本以项目当前 Gradle 配置为准。
 
-克隆项目
+### 克隆项目
 
-git clone --recursive [https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git) cd fcitx5-android-Smart-Hybrid 
+```bash
+git clone --recursive https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git
+cd fcitx5-android-Smart-Hybrid
+```
 
 如果已经克隆但没有获取子模块：
 
-git submodule update --init --recursive 
+```bash
+git submodule update --init --recursive
+```
 
-构建 Debug APK
+### 构建 Debug APK
 
-./gradlew :app:assembleDebug 
+```bash
+./gradlew :app:assembleDebug
+```
 
-生成的 APK 位于：app/build/outputs/apk/debug/
+APK 输出目录：
 
-构建 Release APK
+```text
+app/build/outputs/apk/debug/
+```
 
-./gradlew :app:assembleRelease 
+### 构建 Release APK
 
-生成的 APK 位于：app/build/outputs/apk/release/
+```bash
+./gradlew :app:assembleRelease
+```
 
-GitHub Actions 构建
+APK 输出目录：
 
-项目提供 GitHub Actions 工作流。构建流程大致为： Push / 手动运行 ➔ Checkout ➔ Setup JDK ➔ Setup Android SDK ➔ Install build dependencies ➔ Gradle Build ➔ Release APK ➔ GitHub Actions Artifact
+```text
+app/build/outputs/apk/release/
+```
 
-当前工作流位于：.github/workflows/
+---
 
-APK 签名
+## ⚙️ GitHub Actions
 
-项目支持通过 GitHub Actions Secrets 对 Release APK 进行签名。目前使用的环境变量包括：
+项目支持通过 GitHub Actions 自动构建 APK。
 
-SIGN_KEY_BASE64（Base64 编码后的 JKS 签名文件）
+基本流程：
 
-SIGN_KEY_PWD（签名密钥库密码）
+```text
+Push / 手动运行
+       │
+       ▼
+    Checkout
+       │
+       ▼
+    Setup JDK
+       │
+       ▼
+ Setup Android SDK
+       │
+       ▼
+Install dependencies
+       │
+       ▼
+  Gradle Build
+       │
+       ▼
+ Release APK
+       │
+       ▼
+GitHub Actions Artifact
+```
 
-SIGN_KEY_ALIAS（签名密钥别名）
+工作流位于：
 
-签名文件以及密码不应直接提交到 Git 仓库。
+```text
+.github/workflows/
+```
 
-发布与开发流程
+---
 
-推荐的发布流程
+## 🔐 APK 签名
 
-修改代码 ➔ Commit ➔ Push ➔ GitHub Actions ➔ Build Release APK ➔ APK 签名 ➔ GitHub Release ➔ 用户下载 APK
+项目支持通过 GitHub Actions Secrets 对 Release APK 进行签名。
 
-开发流程
+目前使用：
 
-这个项目主要采用 GitHub + GitHub Actions + Android 手机测试 进行开发：
+```text
+SIGN_KEY_BASE64
+SIGN_KEY_PWD
+SIGN_KEY_ALIAS
+```
 
+其中：
+
+- `SIGN_KEY_BASE64`：Base64 编码后的 JKS 签名文件
+- `SIGN_KEY_PWD`：签名密钥库密码
+- `SIGN_KEY_ALIAS`：签名密钥别名
+
+签名文件和密码不应直接提交到 Git 仓库。
+
+---
+
+## 🔄 开发流程
+
+项目主要采用：
+
+**GitHub + GitHub Actions + Android 手机测试**
+
+进行开发。
+
+基本流程：
+
+```text
 修改源码
-
-Commit
-
+   │
+   ▼
+ Commit
+   │
+   ▼
 Push 到 GitHub
-
+   │
+   ▼
 GitHub Actions 自动构建
-
-下载 APK
-
-Android 手机上安装测试
-
+   │
+   ▼
+ 下载 APK
+   │
+   ▼
+Android 手机上测试
+   │
+   ▼
 根据测试结果继续修改
+```
 
-这样可以不依赖本地电脑完成主要开发流程。
+这样可以不依赖本地电脑完成主要的开发、构建和测试流程。
 
-当前开发状态
+---
 
-已完成 / 当前代码中
+## 🧩 项目结构
 
-基于 Fcitx5 Android
+主要 Android 代码位于：
 
-保留原有多语言输入框架
+```text
+app/src/main/java/org/fcitx/fcitx5/android/
+```
 
-Android 键盘基础功能
+主要模块：
 
-小鹤双拼键位提示 UI
+```text
+core/
+daemon/
+data/
+input/
+provider/
+ui/
+utils/
+```
 
-双拼提示数据独立管理
+键盘相关代码位于：
 
-GitHub Actions 自动构建
+```text
+app/src/main/java/org/fcitx/fcitx5/android/input/keyboard/
+```
 
-Release APK 签名支持
+主要文件包括：
 
-正在开发 / 后续计划
+```text
+BaseKeyboard.kt
+CommonKeyActionListener.kt
+CustomGestureView.kt
+KeyAction.kt
+KeyActionListener.kt
+KeyDef.kt
+KeyDefPreset.kt
+KeyDrawable.kt
+KeyView.kt
+KeyboardWindow.kt
+LangSwitchBehavior.kt
+NumberKeyboard.kt
+SpaceLongPressBehavior.kt
+SwipeSymbolDirection.kt
+TextKeyboard.kt
+```
 
-完整小鹤双拼输入
+---
 
-双拼候选处理
+## 💡 双拼提示实现
 
-双拼 / 全拼混合输入
+目前的双拼键位提示主要涉及：
 
-更完善的拼音输入
+```text
+DoublePinyin.kt
+KeyDef.kt
+KeyDefPreset.kt
+KeyView.kt
+```
 
-智能纠错
+基本结构：
 
-错误输入猜测
+```text
+DoublePinyin.kt
+       │
+       ▼
+KeyDefPreset.kt
+       │
+       ▼
+KeyDef.kt
+       │
+       ▼
+KeyView.kt
+       │
+       ▼
+   键盘显示
+```
 
-语音输入
+### `DoublePinyin.kt`
 
-更多移动端输入体验优化
+负责保存双拼键位提示映射。
 
-注意事项
+例如：
 
-1. 目前的双拼提示不是完整双拼输入
+```kotlin
+"Q" to "iu",
+"W" to "ia",
+"E" to "ua",
+"R" to "uan",
+```
 
-当前版本最重要的一点：看到键盘上的双拼提示，并不代表当前输入法已经可以直接使用小鹤双拼输入中文。 目前主要是帮助用户熟悉键位映射。真正的双拼输入逻辑仍然需要后续开发。
+### `KeyDef.kt`
 
-2. 项目处于开发阶段
+为键盘按键提供双拼提示字段：
 
-由于这是一个持续开发中的个人分支，功能、UI、配置、APK 签名可能发生变化，部分功能可能暂时不稳定。请根据自己的需求选择是否安装测试版本。
+```kotlin
+val doublePinyinHint: String? = null
+```
 
-问题反馈
+### `KeyDefPreset.kt`
 
-如果发现问题，可以在 GitHub Issues 中提交： https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/issues
+创建字母键时读取对应提示：
 
-提交问题时建议包含：
+```kotlin
+doublePinyinHint = DoublePinyin.Xiaohe.getHint(character)
+```
 
+### `KeyView.kt`
+
+负责将双拼提示显示在键盘按键上。
+
+---
+
+## 📱 当前开发状态
+
+### 已完成 / 当前代码中
+
+- ✅ 基于 Fcitx5 Android
+- ✅ 保留原有多语言输入框架
+- ✅ Android 键盘基础功能
+- ✅ 小鹤双拼键位提示 UI
+- ✅ 双拼提示数据独立管理
+- ✅ GitHub Actions 自动构建
+- ✅ Release APK 签名支持
+
+### 正在开发 / 后续计划
+
+- 🚧 完整小鹤双拼输入
+- 📋 双拼候选处理
+- 📋 双拼 / 全拼混合输入
+- 📋 更完善的全拼输入
+- 📋 智能纠错
+- 📋 输入错误猜测
+- 📋 语音输入
+- 📋 更多移动端输入体验优化
+
+---
+
+## ⚠️ 注意事项
+
+### 1. 当前双拼提示不是完整双拼输入
+
+看到键盘上的双拼提示，并不代表当前输入法已经可以直接使用小鹤双拼输入中文。
+
+当前功能主要用于帮助用户熟悉：
+
+```text
+Q → iu
+W → ia
+E → ua
+R → uan
+T → ue
+...
+```
+
+真正的双拼输入逻辑仍在后续开发中。
+
+### 2. 项目处于开发阶段
+
+这是一个持续开发中的个人分支，因此：
+
+- 功能可能发生变化
+- UI 可能发生变化
+- 配置可能发生变化
+- APK 签名可能发生变化
+- 部分功能可能暂时不稳定
+
+请根据自己的需求选择是否安装开发版本。
+
+---
+
+## 🐛 问题反馈
+
+如果发现问题，可以提交 GitHub Issue：
+
+**[提交 Issue](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/issues)**
+
+建议提供：
+
+```text
 Android 版本：
-
 手机型号：
-
 APK 版本：
-
 输入法配置：
 
 问题描述：
@@ -321,389 +476,516 @@ APK 版本：
 复现步骤：
 
 日志：
+```
 
 如果是构建问题，也可以附上 GitHub Actions 的失败日志。
 
-贡献
+---
+
+## 🤝 贡献
 
 欢迎提交：
 
-Bug 修复
-
-功能改进
-
-UI 改进
-
-输入方案
-
-双拼相关功能
-
-文档改进
-
-测试反馈
+- Bug 修复
+- 功能改进
+- UI 改进
+- 输入方案
+- 双拼相关功能
+- 文档改进
+- 测试反馈
 
 如果涉及较大的功能修改，建议先通过 Issue 讨论。
 
-许可证
+---
 
-本项目基于 Fcitx5 Android。 Fcitx5 Android 以及相关组件的许可证信息请以各自源代码中的 SPDX 标识以及 LICENSE 文件为准。本项目新增或修改的代码应遵循其对应源文件声明的许可证。
+## 🔗 上游项目
 
-请在修改和重新发布时保留原项目的版权声明以及许可证信息。
+本项目基于：
 
-致谢
+**[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)**
+
+本项目主要针对个人需求进行功能实验和修改。
+
+上游项目提供了本项目使用的基础输入法框架以及大量基础代码。
+
+如果你希望使用原版 Fcitx5 Android，请访问：
+
+**[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)**
+
+---
+
+## 📄 许可证
+
+本项目基于 Fcitx5 Android。
+
+Fcitx5 Android 以及相关组件的许可证信息，请以各自源代码中的 SPDX 标识以及 LICENSE 文件为准。
+
+本项目新增或修改的代码应遵循对应源文件声明的许可证。
+
+修改或重新发布项目时，请保留原项目的版权声明以及许可证信息。
+
+---
+
+## 🙏 致谢
 
 感谢 Fcitx5 Android 项目以及所有 Fcitx5 相关项目的贡献者。
 
-上游项目： https://github.com/fcitx5-android/fcitx5-android
+- [Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)
+- [Fcitx5](https://github.com/fcitx/fcitx5)
 
-Fcitx5： https://github.com/fcitx/fcitx5
+---
 
-English
+# English
 
-Introduction
+## ✨ Introduction
 
-Fcitx5 Android Smart Hybrid is a personal development fork based on Fcitx5 Android.
+**Fcitx5 Android Smart Hybrid** is a personal development fork based on [Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android).
 
-The project explores a more flexible Android input experience while keeping the existing Fcitx5 Android framework, multilingual input support, and plugin architecture.
+The project explores a more flexible Android input experience while keeping the existing Fcitx5 Android framework, multilingual input support, and plugin ecosystem.
 
-The main development directions include:
+### Main directions
 
-Xiaohe double-pinyin
+- 🐦 Xiaohe double-pinyin
+- 🔀 Hybrid double-pinyin / full-pinyin input
+- ⌨️ Full-pinyin input
+- 🧠 Intelligent typo correction and input guessing
+- 🎙️ Voice input
+- 💡 More informative keyboard hints
+- 📱 Mobile input experience improvements
 
-Hybrid double-pinyin / full-pinyin input
+> The project is currently under active development.
 
-Full-pinyin input
+---
 
-Intelligent typo correction
+## 🚀 Current Features
 
-Input guessing
+### Xiaohe Double-Pinyin Keyboard Hints
 
-Voice input
+The current version first introduces **Xiaohe double-pinyin keyboard hints**.
 
-More informative keyboard hints
+Alphabet keys display their corresponding double-pinyin hints:
 
-Other improvements for mobile input
+```text
+┌─────┐
+│  Q  │
+│  iu │
+└─────┘
+```
 
-The project is currently under active development.
+Examples:
 
-Current Version
+| Key | Hint |
+|:---:|:---:|
+| Q | `iu` |
+| W | `ia` |
+| E | `ua` |
+| R | `uan` |
+| T | `ue` |
 
-v0.2 Development
+### ⚠️ Current Scope
 
-The current development focus is double-pinyin keyboard hints.
+The current double-pinyin feature is primarily intended for:
 
-The keyboard displays a Xiaohe double-pinyin hint below alphabet keys. For example:
+- Learning the key mapping
+- Familiarizing yourself with the keyboard
+- Visual input hints
 
-┌─────┐ │ Q │ │ iu │ └─────┘ 
+**It is not a complete double-pinyin input engine yet.**
 
-Other keys display their corresponding hints. For example:
+The current keyboard still uses the existing input logic.
 
-Q → iu W → ia E → ua R → uan T → ue ... 
+Full Xiaohe double-pinyin input will be developed in future versions.
 
-Important
+---
 
-The current implementation is primarily a visual keyboard hint. The keyboard still uses the existing input behavior.
+## 🗺️ Roadmap
 
-In other words: The current version displays double-pinyin hints, but it does not yet implement complete double-pinyin input.
+| Feature | Status |
+|---|:---:|
+| Xiaohe double-pinyin keyboard hints | ✅ Done |
+| Double-pinyin key mapping | 🚧 In Progress |
+| Full Xiaohe double-pinyin input | 📋 Planned |
+| Double-pinyin candidate handling | 📋 Planned |
+| Hybrid double-pinyin / full-pinyin input | 📋 Planned |
+| Improved full-pinyin input | 📋 Planned |
+| Intelligent typo correction | 📋 Planned |
+| Input error guessing | 📋 Planned |
+| Voice input | 📋 Planned |
+| Further mobile input improvements | 📋 Planned |
 
-Actual double-pinyin input and hybrid double-pinyin / full-pinyin input are planned for future development.
+---
 
-Project Goals
+## 🎯 Project Goals
 
-The long-term goal is to provide several input modes within the same input method:
+The long-term goal is to allow multiple input methods to coexist naturally:
 
-Android Keyboard │ ┌────┴────┬───────────┐ │ │ │ ▼ ▼ ▼ Full Pinyin Double Pinyin Hybrid │ │ │ └────┬────┴───────────┘ ▼ Candidate / Correction │ ▼ Chinese Input 
+```text
+                    Android Keyboard
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+             ▼             ▼             ▼
+         Full Pinyin   Double Pinyin   Hybrid
+             │             │             │
+             └─────────────┼─────────────┘
+                           ▼
+                    Candidate / Correction
+                           │
+                           ▼
+                      Chinese Input
+```
 
-The goal is not simply to add another input method, but to allow different input habits to coexist naturally.
+The goal is not simply to add another input method, but to allow different input habits to coexist within the same keyboard.
 
-Planned Features
+---
 
-The following features are planned and are not necessarily implemented in the current version.
+## 📥 Download
 
-1. Xiaohe Double Pinyin
+### GitHub Releases
 
-Planned support includes:
+Official releases:
 
-Double-pinyin key mapping
+**[Download Latest Release](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/releases)**
 
-Initial input
+### GitHub Actions
 
-Final input
+Development builds can be obtained from:
 
-Double-pinyin candidates
+**[GitHub Actions](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/actions)**
 
-Double-pinyin dictionary support
+> Development builds may contain unfinished features and may not be stable.
 
-Double-pinyin state handling
+---
 
-2. Full Pinyin
+## 🛠️ Build
 
-Traditional full-pinyin input will remain available (e.g., inputting nihao to get 你好).
+### Requirements
 
-3. Hybrid Double Pinyin / Full Pinyin
+Recommended environment:
 
-The project plans to allow different input methods to be used within the same input session (e.g., full pinyin + double pinyin or double pinyin + full pinyin). The exact input rules are still under development.
+- JDK 17
+- Android SDK
+- Android NDK / CMake
+- Gradle Wrapper
 
-4. Intelligent Correction
+Exact versions depend on the current Gradle configuration.
 
-Possible future improvements include:
+### Clone
 
-Pinyin typo correction
+```bash
+git clone --recursive https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git
+cd fcitx5-android-Smart-Hybrid
+```
 
-Double-pinyin key mistakes
+If submodules were not initialized:
 
-Adjacent-key mistakes
+```bash
+git submodule update --init --recursive
+```
 
-Common pinyin errors
+### Debug APK
 
-Candidate correction
+```bash
+./gradlew :app:assembleDebug
+```
 
-Context-aware input guessing
+Output:
 
-5. Voice Input
+```text
+app/build/outputs/apk/debug/
+```
 
-Voice input is planned for a future version. The exact speech recognition implementation and services will be determined during development.
+### Release APK
 
-6. Keyboard Hints
+```bash
+./gradlew :app:assembleRelease
+```
 
-Future versions may provide additional hints such as:
+Output:
 
-Input mode indicators
+```text
+app/build/outputs/apk/release/
+```
 
-Input state
+---
 
-Shortcut hints
+## ⚙️ GitHub Actions
 
-Special-key hints
+The project supports automated APK builds through GitHub Actions.
 
-User-defined key hints
+The general workflow is:
 
-Download
+```text
+Push / Manual Trigger
+        │
+        ▼
+     Checkout
+        │
+        ▼
+     Setup JDK
+        │
+        ▼
+  Setup Android SDK
+        │
+        ▼
+Install Dependencies
+        │
+        ▼
+   Gradle Build
+        │
+        ▼
+    Release APK
+        │
+        ▼
+GitHub Actions Artifact
+```
 
-GitHub Releases
+Workflows are located under:
 
-Release APKs will be published on GitHub Releases: GitHub Releases
+```text
+.github/workflows/
+```
 
-If no Release is available yet, APKs can also be obtained from GitHub Actions artifacts.
+---
 
-GitHub Actions
+## 🔐 APK Signing
 
-The project supports automated APK builds through GitHub Actions:
+Release APKs can be signed through GitHub Actions Secrets.
 
-A build can be triggered by pushing to the master branch or manually from GitHub Actions.
+The current signing variables are:
 
-The resulting APK is uploaded as a GitHub Actions artifact.
+```text
+SIGN_KEY_BASE64
+SIGN_KEY_PWD
+SIGN_KEY_ALIAS
+```
 
-Upstream Project
-
-This project is based on Fcitx5 Android.
-
-Upstream repository: https://github.com/fcitx5-android/fcitx5-android
-
-This repository is an independent development fork focused on personal experimentation and additional features. The basic Android input method framework and a large amount of the existing implementation come from Fcitx5 Android.
-
-For the original Fcitx5 Android project, please visit the upstream repository.
-
-Existing Features
-
-This project inherits the basic input method framework from Fcitx5 Android. The inherited functionality includes:
-
-Android input method service
-
-Fcitx5 input method core
-
-Multilingual input support
-
-Keyboard input
-
-Input method switching
-
-Input method configuration
-
-Fcitx5 plugin support
-
-Input method engines
-
-Actual functionality depends on the current project version, enabled plugins, and configuration.
-
-Supported Languages
-
-Because this project is based on Fcitx5 Android, it can use the input methods and language engines supported by the Fcitx5 Android framework. Actual available input methods depend on:
-
-Installed input method engines
-
-Enabled plugins
-
-Input method configuration
-
-Current project version
-
-Adding Chinese double-pinyin support does not remove the existing multilingual input framework.
-
-Development
-
-Project Structure
-
-The main Android source code is located at: app/src/main/java/org/fcitx/fcitx5/android/
-
-Main packages include: core/ daemon/ data/ input/ provider/ ui/ utils/
-
-Keyboard-related code is mainly located at: app/src/main/java/org/fcitx/fcitx5/android/input/keyboard/
-
-Important files include: BaseKeyboard.kt CommonKeyActionListener.kt CustomGestureView.kt KeyAction.kt KeyActionListener.kt KeyDef.kt KeyDefPreset.kt KeyDrawable.kt KeyView.kt KeyboardWindow.kt LangSwitchBehavior.kt NumberKeyboard.kt SpaceLongPressBehavior.kt SwipeSymbolDirection.kt TextKeyboard.kt
-
-Double-Pinyin Hint Implementation
-
-The current double-pinyin hint implementation mainly involves: KeyDef.kt KeyDefPreset.kt KeyView.kt DoublePinyin.kt
-
-DoublePinyin.kt: Stores the double-pinyin hint mapping (e.g., "Q" to "iu", "W" to "ia", ...).
-
-KeyDef.kt: Provides a field for the double-pinyin hint (val doublePinyinHint: String? = null).
-
-KeyDefPreset.kt: Reads the corresponding hint when creating alphabet keys (doublePinyinHint = DoublePinyin.Xiaohe.getHint(character)).
-
-KeyView.kt: Displays the hint on the keyboard key.
-
-The current architecture is approximately:
-
-DoublePinyin.kt │ ▼ KeyDefPreset.kt │ ▼ KeyDef.kt │ ▼ KeyView.kt │ ▼ Keyboard UI 
-
-Building Locally
-
-Requirements
-
-The project uses Gradle to build the Android application. Recommended environment:
-
-JDK 17
-
-Android SDK
-
-Android NDK / CMake
-
-Gradle Wrapper
-
-Exact versions are determined by the project's current Gradle configuration.
-
-Clone the Repository
-
-git clone --recursive [https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid.git) cd fcitx5-android-Smart-Hybrid 
-
-If the repository has already been cloned:
-
-git submodule update --init --recursive 
-
-Build Debug APK
-
-./gradlew :app:assembleDebug 
-
-The APK will be generated under: app/build/outputs/apk/debug/
-
-Build Release APK
-
-./gradlew :app:assembleRelease 
-
-The APK will be generated under: app/build/outputs/apk/release/
-
-GitHub Actions Build
-
-The project provides GitHub Actions workflows. The general build process is: Push / Manual Trigger ➔ Checkout ➔ Setup JDK ➔ Setup Android SDK ➔ Install Build Dependencies ➔ Gradle Build ➔ Release APK ➔ GitHub Actions Artifact
-
-The workflows are located under: .github/workflows/
-
-APK Signing
-
-The project supports signing Release APKs through GitHub Actions Secrets. The current signing environment variables include:
-
-SIGN_KEY_BASE64 (Base64-encoded JKS keystore)
-
-SIGN_KEY_PWD (Keystore password)
-
-SIGN_KEY_ALIAS (Signing key alias)
+- `SIGN_KEY_BASE64` — Base64-encoded JKS keystore
+- `SIGN_KEY_PWD` — Keystore password
+- `SIGN_KEY_ALIAS` — Signing key alias
 
 Signing files and passwords should never be committed directly to the repository.
 
-Release & Development Workflow
+---
 
-Release Process
+## 🔄 Development Workflow
 
-The intended release process is: Modify Source ➔ Commit ➔ Push ➔ GitHub Actions ➔ Build Release APK ➔ Sign APK ➔ GitHub Release ➔ Download APK
+The project is primarily developed using:
 
-Development Workflow
+**GitHub + GitHub Actions + Android device testing**
 
-The project is primarily developed using GitHub + GitHub Actions + Android device testing:
+Typical workflow:
 
-Modify source code
-
-Commit changes
-
+```text
+Modify Source
+      │
+      ▼
+   Commit
+      │
+      ▼
 Push to GitHub
+      │
+      ▼
+GitHub Actions Build
+      │
+      ▼
+ Download APK
+      │
+      ▼
+Test on Android
+      │
+      ▼
+Continue Development
+```
 
-GitHub Actions builds the APK
+This allows most development, building, and testing to be performed without a local computer.
 
-Download the APK
+---
 
-Install and test it on Android
+## 🧩 Project Structure
 
-Continue development based on the test results
+Main Android source code:
 
-Development Status
+```text
+app/src/main/java/org/fcitx/fcitx5/android/
+```
 
-Currently implemented / available in the codebase
+Main modules:
 
-Based on Fcitx5 Android
+```text
+core/
+daemon/
+data/
+input/
+provider/
+ui/
+utils/
+```
 
-Existing multilingual input framework
+Keyboard-related code:
 
-Android keyboard functionality
+```text
+app/src/main/java/org/fcitx/fcitx5/android/input/keyboard/
+```
 
-Xiaohe double-pinyin keyboard hints
+Important files include:
 
-Separate double-pinyin hint mapping
+```text
+BaseKeyboard.kt
+CommonKeyActionListener.kt
+CustomGestureView.kt
+KeyAction.kt
+KeyActionListener.kt
+KeyDef.kt
+KeyDefPreset.kt
+KeyDrawable.kt
+KeyView.kt
+KeyboardWindow.kt
+LangSwitchBehavior.kt
+NumberKeyboard.kt
+SpaceLongPressBehavior.kt
+SwipeSymbolDirection.kt
+TextKeyboard.kt
+```
 
-GitHub Actions build support
+---
 
-Release APK signing support
+## 💡 Double-Pinyin Hint Implementation
 
-Planned / Future Development
+The current double-pinyin hint implementation mainly involves:
 
-Complete Xiaohe double-pinyin input
+```text
+DoublePinyin.kt
+KeyDef.kt
+KeyDefPreset.kt
+KeyView.kt
+```
 
-Double-pinyin candidate handling
+Architecture:
 
-Double-pinyin / full-pinyin hybrid input
+```text
+DoublePinyin.kt
+       │
+       ▼
+KeyDefPreset.kt
+       │
+       ▼
+KeyDef.kt
+       │
+       ▼
+KeyView.kt
+       │
+       ▼
+Keyboard UI
+```
 
-More complete pinyin input
+### `DoublePinyin.kt`
 
-Intelligent typo correction
+Stores the double-pinyin hint mapping.
 
-Input guessing
+For example:
 
-Voice input
+```kotlin
+"Q" to "iu",
+"W" to "ia",
+"E" to "ua",
+"R" to "uan",
+```
 
-Further mobile input improvements
+### `KeyDef.kt`
 
-Important Notes
+Provides the double-pinyin hint field:
 
-1. The Current Double-Pinyin Hint Is Not Full Double-Pinyin Input
+```kotlin
+val doublePinyinHint: String? = null
+```
 
-The most important distinction in the current version is: The double-pinyin hints displayed on the keyboard do not mean that full Xiaohe double-pinyin input is already implemented. The current feature is mainly intended to help users learn key mapping. The actual double-pinyin input engine still needs to be implemented.
+### `KeyDefPreset.kt`
 
-2. Development Status
+Reads the corresponding hint when creating alphabet keys:
 
-Since this is a continuously developed fork, features, UI, configurations, and APK signing details may change, and some features may be unstable during development. Use development builds according to your own needs.
+```kotlin
+doublePinyinHint = DoublePinyin.Xiaohe.getHint(character)
+```
 
-Issue Reporting
+### `KeyView.kt`
 
-Please submit issues through GitHub Issues: https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/issues
+Displays the double-pinyin hint on the keyboard key.
 
-When reporting an issue, please provide:
+---
 
+## 📊 Development Status
+
+### Currently Available
+
+- ✅ Based on Fcitx5 Android
+- ✅ Existing multilingual input framework
+- ✅ Android keyboard functionality
+- ✅ Xiaohe double-pinyin keyboard hints
+- ✅ Separate double-pinyin hint mapping
+- ✅ GitHub Actions build support
+- ✅ Release APK signing support
+
+### Planned
+
+- 🚧 Full Xiaohe double-pinyin input
+- 📋 Double-pinyin candidate handling
+- 📋 Hybrid double-pinyin / full-pinyin input
+- 📋 Improved full-pinyin input
+- 📋 Intelligent typo correction
+- 📋 Input error guessing
+- 📋 Voice input
+- 📋 Further mobile input improvements
+
+---
+
+## ⚠️ Important Notes
+
+### The Current Double-Pinyin Hint Is Not Full Double-Pinyin Input
+
+Seeing double-pinyin hints on the keyboard does not mean that complete Xiaohe double-pinyin input is already implemented.
+
+The current feature is mainly intended to help users learn the key mapping:
+
+```text
+Q → iu
+W → ia
+E → ua
+R → uan
+T → ue
+...
+```
+
+The actual double-pinyin input engine is still under development.
+
+### Development Status
+
+This is a continuously developed personal fork.
+
+Therefore:
+
+- Features may change
+- UI may change
+- Configuration may change
+- APK signing details may change
+- Some features may be unstable during development
+
+Use development builds at your own discretion.
+
+---
+
+## 🐛 Issues
+
+If you encounter a problem, please submit a GitHub Issue:
+
+**[Submit an Issue](https://github.com/n62292291-star/fcitx5-android-Smart-Hybrid/issues)**
+
+Please include:
+
+```text
 Android version:
-
 Device:
-
 APK version:
-
 Input method configuration:
 
 Problem description:
@@ -711,40 +993,59 @@ Problem description:
 Steps to reproduce:
 
 Logs:
+```
 
-For build failures, GitHub Actions logs are also useful.
+For build problems, GitHub Actions logs are also helpful.
 
-Contributing
+---
+
+## 🤝 Contributing
 
 Contributions are welcome, including:
 
-Bug fixes
+- Bug fixes
+- Feature improvements
+- UI improvements
+- Input schemes
+- Double-pinyin features
+- Documentation
+- Testing and feedback
 
-Feature improvements
+For larger changes, discussing the idea in an Issue first is recommended.
 
-UI improvements
+---
 
-Input schemes
+## 🔗 Upstream Project
 
-Double-pinyin features
+This project is based on:
 
-Documentation
+**[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)**
 
-Testing and feedback
+This repository is an independent development fork focused on personal experimentation and additional features.
 
-For larger changes, discussing the idea in an Issue before implementation is recommended.
+The basic input method framework and a large amount of the underlying code are provided by the upstream Fcitx5 Android project.
 
-License
+For the original project:
 
-This project is based on Fcitx5 Android. The licenses of Fcitx5 Android and its related components should be determined from their respective source files, SPDX identifiers, and LICENSE files. New or modified code in this project should follow the license declared by the corresponding source file.
+**[Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)**
+
+---
+
+## 📄 License
+
+This project is based on Fcitx5 Android.
+
+Please refer to the SPDX identifiers and LICENSE files of the respective source files and components for their applicable licenses.
+
+New or modified code should follow the license declared by the corresponding source file.
 
 Please retain the original copyright notices and license information when modifying or redistributing the project.
 
-Acknowledgements
+---
 
-Special thanks to the Fcitx5 Android project and all contributors to the Fcitx5 ecosystem.
+## 🙏 Acknowledgements
 
-Upstream project: https://github.com/fcitx5-android/fcitx5-android
+Thanks to the Fcitx5 Android project and all contributors to the Fcitx5 ecosystem.
 
-Fcitx5: https://github.com/fcitx/fcitx5
-
+- [Fcitx5 Android](https://github.com/fcitx5-android/fcitx5-android)
+- [Fcitx5](https://github.com/fcitx/fcitx5)
